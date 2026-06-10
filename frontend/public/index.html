@@ -9,24 +9,29 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="format-detection" content="telephone=yes" />
-    <meta name="description" content="Scan QR code to view vehicle and driver information instantly — no app required." />
+    <meta name="description" content="Scan QR code to view vehicle and driver information instantly." />
     <meta property="og:title" content="Vehicle QR Manager" />
     <meta property="og:description" content="Scan QR code to view vehicle and driver information." />
     <meta property="og:type" content="website" />
     <title>Vehicle QR Manager</title>
-    <script type="text/javascript">
-      // GitHub Pages SPA redirect handler
-      // Reads the path stored by 404.html and replaces the URL
+    <script>
+      // Single Page Apps for GitHub Pages — https://github.com/rafgraph/spa-github-pages
+      // Restores the path that was saved by 404.html
       (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
+        if (l.search.indexOf('?p=/') > -1) {
+          var r = l.search.slice(1).split('&');
+          var path = '';
+          var query = '';
+          r.forEach(function(part) {
+            if (part.startsWith('p=')) path = part.slice(2).replace(/~and~/g, '&');
+            if (part.startsWith('q=')) query = '?' + part.slice(2).replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null, null,
+            l.pathname.split('/').slice(0, 2).join('/') + '/' + path + query + l.hash
           );
         }
-      }(window.location))
+      }(window.location));
     </script>
   </head>
   <body>
