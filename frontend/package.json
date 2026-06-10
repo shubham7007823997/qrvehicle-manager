@@ -2,7 +2,7 @@
   "name": "qr-vehicle-frontend",
   "version": "1.0.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://shubham7007823997.github.io/qrvehicle-manager",
   "dependencies": {
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",

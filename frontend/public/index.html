@@ -21,6 +21,25 @@
     <meta property="og:type" content="website" />
 
     <title>Vehicle QR Manager</title>
+    <script>
+      // GitHub Pages SPA redirect — handles the ?/ redirect from 404.html
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+        // Handle ?/ style redirects from 404.html
+        var search = location.search;
+        if (search && search.slice(1, 2) === '/') {
+          var decoded = search.slice(1).replace(/~and~/g, '&');
+          history.replaceState(null, null,
+            location.pathname.slice(0, -1) + decoded +
+            (location.hash || '')
+          );
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>

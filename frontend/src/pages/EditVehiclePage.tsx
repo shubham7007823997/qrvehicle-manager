@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import VehicleForm from '../components/VehicleForm';
 import QRCodeModal from '../components/QRCodeModal';
 import { vehicleApi } from '../api/vehicles';
@@ -9,7 +9,6 @@ import toast from 'react-hot-toast';
 
 const EditVehiclePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
   const { vehicle, isLoading: loadingVehicle, error } = useVehicle(id!);
   const [isSaving, setIsSaving] = useState(false);
   const [showQR, setShowQR] = useState(false);
