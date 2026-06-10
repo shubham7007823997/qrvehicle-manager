@@ -5,6 +5,7 @@ services:
     rootDir: backend
     buildCommand: npm install && npx prisma generate && npm run build
     startCommand: npx prisma migrate deploy && node dist/index.js
+    nodeVersion: 20.15.0
     envVars:
       - key: NODE_ENV
         value: production
