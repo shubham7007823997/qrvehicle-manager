@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/qrvehicle-manager/static/css/main.44e9cbc1.css",
-    "main.js": "/qrvehicle-manager/static/js/main.b7cedb70.js",
+    "main.js": "/qrvehicle-manager/static/js/main.f31cc8c0.js",
     "static/js/239.e9b06916.chunk.js": "/qrvehicle-manager/static/js/239.e9b06916.chunk.js",
     "static/js/213.f831849b.chunk.js": "/qrvehicle-manager/static/js/213.f831849b.chunk.js",
     "static/js/455.e5180a95.chunk.js": "/qrvehicle-manager/static/js/455.e5180a95.chunk.js",
     "index.html": "/qrvehicle-manager/index.html",
     "main.44e9cbc1.css.map": "/qrvehicle-manager/static/css/main.44e9cbc1.css.map",
-    "main.b7cedb70.js.map": "/qrvehicle-manager/static/js/main.b7cedb70.js.map",
+    "main.f31cc8c0.js.map": "/qrvehicle-manager/static/js/main.f31cc8c0.js.map",
     "239.e9b06916.chunk.js.map": "/qrvehicle-manager/static/js/239.e9b06916.chunk.js.map",
     "213.f831849b.chunk.js.map": "/qrvehicle-manager/static/js/213.f831849b.chunk.js.map",
     "455.e5180a95.chunk.js.map": "/qrvehicle-manager/static/js/455.e5180a95.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.44e9cbc1.css",
-    "static/js/main.b7cedb70.js"
+    "static/js/main.f31cc8c0.js"
   ]
 }

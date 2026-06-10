@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <title>Vehicle QR Manager</title>
-    <script>
-      // GitHub Pages SPA redirect trick
-      // Converts  /qrvehicle-manager/vehicle/VH10001
-      // into      /qrvehicle-manager/?/vehicle/VH10001
-      // so the React app can handle it
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript">
+      // GitHub Pages SPA 404 redirect trick
+      // Stores the current path/query/hash into the URL as a query param
+      // then redirects to index.html which restores it via history.replaceState
+      var pathSegmentsToKeep = 1; // number of path segments in the repo name
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 2).join('/') +
-        '/?/' +
-        l.pathname.slice(1).split('/').slice(1).join('/').replace(/&/g, '~and~') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
         (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
         l.hash
       );
