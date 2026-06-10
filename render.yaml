@@ -1,5 +1,4 @@
 services:
-  # ── Backend API ───────────────────────────────────────────────────────────────
   - type: web
     name: qrvehicle-backend
     runtime: node
@@ -25,7 +24,6 @@ services:
     plan: free
 
 databases:
-  # ── PostgreSQL ────────────────────────────────────────────────────────────────
   - name: qrvehicle-db
     databaseName: qrvehicle
     user: qrvehicle_user
