@@ -101,18 +101,19 @@ export async function updateVehicle(
   if (data.notes !== undefined) updateData.notes = data.notes?.trim() || null;
 
   // Compute diff for history
-  const changes: Record<string, { from: unknown; to: unknown }> = {};
+  const changes: Prisma.InputJsonValue = {};
+  const changesObj = changes as Record<string, { from: unknown; to: unknown }>;
   for (const key of Object.keys(updateData) as Array<keyof typeof updateData>) {
     const oldVal = (existing as Record<string, unknown>)[key as string];
     const newVal = updateData[key];
     if (String(oldVal) !== String(newVal)) {
-      changes[key as string] = { from: oldVal, to: newVal };
+      changesObj[key as string] = { from: oldVal, to: newVal };
     }
   }
 
   const [updated] = await prisma.$transaction([
     prisma.vehicle.update({ where: { id }, data: updateData }),
-    ...(Object.keys(changes).length > 0
+    ...(Object.keys(changesObj).length > 0
       ? [
           prisma.vehicleHistory.create({
             data: { vehicleId: id, changedBy: changedBy || null, changes },

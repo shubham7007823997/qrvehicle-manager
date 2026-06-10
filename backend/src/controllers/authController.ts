@@ -24,10 +24,12 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
+    const secret = process.env.JWT_SECRET as string;
+    const expiresIn = (process.env.JWT_EXPIRES_IN || '24h') as `${number}${'s'|'m'|'h'|'d'}` | number;
     const token = jwt.sign(
       { uid: admin.id, email: admin.email, role: admin.role },
-      process.env.JWT_SECRET as string,
-      { expiresIn: process.env.JWT_EXPIRES_IN || '24h' }
+      secret,
+      { expiresIn }
     );
 
     res.json({

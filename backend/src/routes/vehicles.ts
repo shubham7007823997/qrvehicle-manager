@@ -25,7 +25,11 @@ const upload = multer({
       file.mimetype.includes('excel') ||
       file.originalname.endsWith('.xlsx') ||
       file.originalname.endsWith('.xls');
-    cb(ok ? null : new Error('Only Excel files are allowed'), ok);
+    if (ok) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only Excel files are allowed'));
+    }
   },
 });
 
