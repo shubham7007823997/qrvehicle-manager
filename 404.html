@@ -4,17 +4,16 @@
     <meta charset="utf-8" />
     <title>Vehicle QR Manager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type="text/javascript">
-      // GitHub Pages SPA 404 redirect trick
-      // Stores the current path/query/hash into the URL as a query param
-      // then redirects to index.html which restores it via history.replaceState
-      var pathSegmentsToKeep = 1; // number of path segments in the repo name
+    <script>
+      // Single Page Apps for GitHub Pages — https://github.com/rafgraph/spa-github-pages
+      // pathSegmentsToKeep = 1 means keep /qrvehicle-manager in the path
+      var segmentsToKeep = 1;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.pathname.split('/').slice(0, 1 + segmentsToKeep).join('/') + '/?p=/' +
+        l.pathname.split('/').slice(1 + segmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
         l.hash
       );
     </script>
