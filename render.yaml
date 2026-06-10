@@ -5,7 +5,6 @@ services:
     rootDir: backend
     buildCommand: npm install && npx prisma generate && npm run build
     startCommand: npx prisma migrate deploy && node dist/index.js
-    nodeVersion: 20.15.0
     envVars:
       - key: NODE_ENV
         value: production
@@ -14,7 +13,7 @@ services:
           name: qrvehicle-db
           property: connectionString
       - key: JWT_SECRET
-        generateValue: true
+        value: QRVehicleManager2024SecretKey_Mahakaal251251
       - key: JWT_EXPIRES_IN
         value: 24h
       - key: FRONTEND_URL
@@ -29,3 +28,4 @@ databases:
     databaseName: qrvehicle
     user: qrvehicle_user
     plan: free
+    region: oregon
